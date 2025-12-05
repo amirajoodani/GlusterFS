@@ -8,4 +8,9 @@
 - in Replication HA Method , if you Write 1G Data to DB , Based on your Replicaset , for example 3 , You have 3 instabce from your data and of course your data occupied 3G on your servers . now if one of your server goes down , you can retrive your data from other nodes . <br>
 - now if you have one big file , for example 150 GB , and your disks on linux server have just 100 GB per nodes , you can not write yor data file into your replicated cluster and you should use <b>DISTRIBUTED</b> mode . in this mode , for example if you have 3 server with 100 GB stroage for glusterfs , now you have totally 300GB for storing data . but in Replicated Method you just have 100GB Storage  . <b>BUT</b> if one of your server goes down in distributed method , you have lost you data . <br>
 - we can use two protocol to communicate between client and cluster . one of them is nfs and another is Gluster Protocol . 
-![gluster](https://github.com/user-attachments/assets/8daa636d-d1fe-44c0-a57d-8b1cb5f99653)
+![gluster](https://github.com/user-attachments/assets/8daa636d-d1fe-44c0-a57d-8b1cb5f99653) <br>
+# DIAGRAM :
+<img width="543" height="420" alt="gluster (1)" src="https://github.com/user-attachments/assets/692b9051-17cb-4bb8-b0d1-6adf4a28dcc7" /> <br>
+every server has two networks : <br>
+1- for public access <br>
+2- for disk replication <br>
