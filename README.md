@@ -72,6 +72,24 @@ on one node : <br>
 # gluster volume status vol1
  ```
 
+on client node : <br>
+```bash
+# apt install glusterfs-client -y
+```
+update /etc/hosts on clients : <br>
+```bash
+#vi /etc/hosts
+192.168.1.201 gl1
+192.168.1.202 gl2
+192.168.1.203 gl3
+```
+create directory on client : <br>
+```bash
+# mkdir /mnt/vol1
+# echo "gl3:/vol1 /mnt/vol1 glusterfs defaults 0 0 " >> /etc/fstab
+# mount -a
+
+
 
 
 
