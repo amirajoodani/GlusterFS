@@ -14,3 +14,12 @@
 every server has two networks : <br>
 1- for public access <br>
 2- for disk replication <br>
+server gl1 : <br>
+<img width="791" height="491" alt="gl1" src="https://github.com/user-attachments/assets/3f2ff47c-d703-4663-8b09-4443a7cd6078" /> <br>
+server gl2 : <br>
+<img width="783" height="493" alt="gl2" src="https://github.com/user-attachments/assets/45514d26-05d8-41ff-a373-2bdbfaf145d5" /> <br>
+server gl3: <br>
+<img width="790" height="492" alt="gl3" src="https://github.com/user-attachments/assets/be82bb95-c1ae-4b18-8b5e-8954d33d122c" /> <br>
+
+
+
