@@ -20,6 +20,60 @@ server gl2 : <br>
 <img width="783" height="493" alt="gl2" src="https://github.com/user-attachments/assets/45514d26-05d8-41ff-a373-2bdbfaf145d5" /> <br>
 server gl3: <br>
 <img width="790" height="492" alt="gl3" src="https://github.com/user-attachments/assets/be82bb95-c1ae-4b18-8b5e-8954d33d122c" /> <br>
+now we should use lvm to create lvm partions fore sdb and sdc on all servers . <br>
+``` bash
+# pvs
+# pvcreate /dev/sdb
+# vgs
+# vgcreate glustervg /dev/sdb
+# lvs
+# lvcreate -l 100%VG -n glusterlv glustervg
+# lvs
+# lsblk -l
+# mkdir /glustervolume
+# vi /etc/fstab
+/dev/glustervg/glusterlv /glustervolume ext4 deafults 0 0
+# mount -a
+```
+
+now install glusterfs : <br>
+``` bash
+# apt update
+# apt -y install glusterfs-server
+# systemctl status glusterd
+# systemctl enable glusterd
+# systemctl start glusterd
+```
+no we should create storage pool . all nodes should see each other and can ping them with name 
+
+on all nodes : <br>
+``` bash
+#vi /etc/hosts
+192.168.1.201 gl1
+192.168.1.202 gl2
+192.168.1.203 gl3
+```
+just on first node :
+``` bash
+(node1)
+# gluster peer probe gl2
+# gluster peer probe gl3
+# gluster peer status
+# gluster pool list
+```
+now we create volume (brick)(on all nodes): <br>
+``` bash
+# mkdir glustervolume/vol1
+```
+on one node : <br>
+```bash
+# gluster volume create vol1 replica 3 gl1:/glustervolume/vol1 gl2:/glustervolume/vol1 gl3:/glustervolume/vol1
+# gluster volume start vol1
+# gluster volume status vol1
+ ```
+
+
+
 
 
 
