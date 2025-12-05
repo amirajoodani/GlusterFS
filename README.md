@@ -88,7 +88,21 @@ create directory on client : <br>
 # mkdir /mnt/vol1
 # echo "gl3:/vol1 /mnt/vol1 glusterfs defaults 0 0 " >> /etc/fstab
 # mount -a
+```
+<b>note : this three server should see each other without firewalls . </b><br>
 
+# how to Delete Volume ? <br>
+1- umount disk from clients
+```bash
+# umount /mnt/vol1
+```
+2- stop volume :
+```bash
+# gluster volume stop vol1
+```
+your file exists now and you can delete all file if you want . if you want to delete files , you should delete from all 3 servers . <br>
+
+3- comment mount option in /etc/fstab clients . <br>
 
 
 
