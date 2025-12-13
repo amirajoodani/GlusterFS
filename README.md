@@ -104,6 +104,33 @@ your file exists now and you can delete all file if you want . if you want to de
 
 3- comment mount option in /etc/fstab clients . <br>
 
+# How to Create distributed volume ? <br>
+
+# 
+```bash
+# gluster volume create vol2 gl1:/glustervolume/vol2 gl2:/glustervolume/vol2 gl3:/glustervolume/vol2
+# gluster volume start vol2
+# gluster volume info 
+```
+
+# How to set Qouta on volume ? <br>
+```bash
+# gluster volume quota vol_distributed enable
+# gluster volume quota vol_distributed limit-usage / 1GB
+# gluster volume quota vol_distributed list
+# df -hP .
+```
+# How to set qouta on directory ? <br>
+```nash
+# gluster volume quota vol_distributed limit-usage /dir01 1GB 70
+```
+# How to extend volume ? <br>
+```bash
+# gluster volume create vol2 gl1:/glustervolume/vol2
+# gluster volume start vol2
+# gluster volume add-brick vol2 gl2:/glustervolume/vol2
+# gluster volume rebalance vol2 fix-layout start
+```
 
 
 
